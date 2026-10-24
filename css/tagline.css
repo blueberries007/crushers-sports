@@ -1,0 +1,24 @@
+/* Hero tagline + mission */
+.hero .tagline {
+  margin: 8px 0 18px;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 800;
+  color: #ffffff;
+}
+.tagline .tag-word { color: #ffffff; }
+.tagline .tag-sep { color: var(--crushers-orange); margin: 0 10px; }
+.tagline .tag-rest {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  color: var(--crushers-orange);
+}
+.hero .mission { max-width: 680px; font-size: 1.05rem; }
+@media (max-width: 600px) {
+  .hero .tagline { font-size: 1.2rem; letter-spacing: 2px; }
+  .tagline .tag-rest { font-size: 0.9rem; }
+}
