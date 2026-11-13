@@ -464,3 +464,102 @@ footer .footer-brand {
 .consent { font-size: 0.85rem; margin-bottom: 18px; display: flex; gap: 8px; align-items: flex-start; }
 .consent input { width: auto; margin-top: 4px; }
 .dashboard-box .form-group { text-align: left; }
+
+/* ---------- Donate page ---------- */
+.donate-hero {
+  background: linear-gradient(rgba(19,19,19,0.55), rgba(19,19,19,0.55)), url("../img/donate-hero.jpg") center 35% / cover no-repeat;
+  border-bottom: 6px solid var(--crushers-orange);
+  min-height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.donate-hero .section-title { margin-bottom: 0; }
+.donate-hero .section-title h2 { text-transform: none; color: var(--crushers-white); text-shadow: 0 2px 8px rgba(0,0,0,0.5); }
+.donate-hero .section-title { padding: 0 10px; }
+.donate-grid { align-items: start; }
+.donate-card .btn { margin: 6px 0 4px; font-size: 1rem; padding: 14px 40px; }
+
+.sponsor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+.sponsor-slot {
+  height: 80px;
+  border: 2px dashed #d0d0d0;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--crushers-gray);
+  font-size: 0.85rem;
+}
+.sponsor-slot img { max-height: 64px; width: auto; }
+.sponsor-wide { grid-column: 1 / -1; }
+
+.events { text-align: left; margin-top: 16px; }
+.event-month h4 {
+  margin: 0 0 10px;
+  color: var(--crushers-orange);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+.event-month + .event-month { margin-top: 18px; }
+.event { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.event img {
+  width: 72px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: var(--crushers-light-gray);
+  flex: none;
+}
+.event span { font-weight: 600; }
+.event-thumb {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  border-radius: 4px;
+  flex: none;
+}
+.event-thumb:hover img, .event-thumb:focus-visible img { box-shadow: 0 0 0 3px var(--crushers-orange); }
+
+.photo-viewer {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: 92vw;
+  max-height: 92vh;
+  overflow: visible;
+}
+.photo-viewer::backdrop { background: rgba(0,0,0,0.8); }
+.photo-viewer img {
+  max-width: 92vw;
+  max-height: 82vh;
+  width: auto;
+  height: auto;
+  border-radius: 6px;
+}
+.photo-viewer p { color: var(--crushers-white); text-align: center; font-weight: 600; margin: 10px 0 0; }
+.photo-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--crushers-orange);
+  color: var(--crushers-white);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .donate-grid { grid-template-columns: 1fr; }
+}
