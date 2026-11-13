@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Donate | Crushers Baseball</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html">CRUSHERS</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="#">Schedule</a>
+        <a href="#">Coaches</a>
+        <a href="#">Join</a>
+        <a href="#">Contact</a>
+      </nav>
+      <a class="btn btn-give" href="donate.html">Give</a>
+    </div>
+  </header>
+  <main>
+    <h1>Support the Crushers</h1>
+    <p class="lead">Your gift keeps fees low and gets every kid on the field.</p>
+
+    <div class="frames">
+      <section class="frame frame-donate" aria-labelledby="donate-title">
+        <h2 id="donate-title">Make a Donation</h2>
+        <p>Email us and we'll help you give by check or online.</p>
+        <div><a class="btn btn-donate" href="mailto:donate@crusherssports.org?subject=Donation%20to%20the%20Crushers">Donate</a></div>
+        <p class="caption">Crushers Sports is 501(c)(3) Nonprofit organization</p>
+      </section>
+
+      <section class="frame" aria-labelledby="sponsors-title">
+        <h2 id="sponsors-title">Our Sponsors</h2>
+        <!-- Placeholder: replace each slot with <img src="images/sponsor-name.png" alt="Sponsor name"> or the sponsor's name -->
+        <div class="sponsor-grid">
+          <div class="sponsor-slot">Sponsor logo</div>
+          <div class="sponsor-slot">Sponsor logo</div>
+          <div class="sponsor-slot">Sponsor logo</div>
+          <div class="sponsor-slot">Sponsor logo</div>
+        </div>
+      </section>
+
+      <section class="frame" aria-labelledby="events-title">
+        <h2 id="events-title">Fundraising Events</h2>
+        <div id="events"></div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer">Crushers Sports is a 501(c)(3) nonprofit organization.</footer>
+  <script>
+    // Fundraising events. Add one line per event; they are grouped by month automatically.
+    // date is YYYY-MM-DD, image goes in the images/ folder.
+    const events = [
+      { date: "2026-12-06", title: "Holiday Bake Sale", image: "images/event-placeholder.svg" },
+      { date: "2026-12-14", title: "Gift Wrap Booth", image: "images/event-placeholder.svg" },
+      { date: "2027-01-18", title: "Pancake Breakfast", image: "images/event-placeholder.svg" },
+      { date: "2027-02-22", title: "Hit-a-thon", image: "images/event-placeholder.svg" }
+    ];
+
+    const box = document.getElementById("events");
+    const byMonth = new Map();
+    events
+      .slice()
+      .sort((a, b) => a.date.localeCompare(b.date))
+      .forEach(e => {
+        const label = new Date(e.date + "T12:00:00").toLocaleDateString("en-US", { month: "long", year: "numeric" });
+        if (!byMonth.has(label)) byMonth.set(label, []);
+        byMonth.get(label).push(e);
+      });
+    byMonth.forEach((list, month) => {
+      const group = document.createElement("div");
+      group.className = "month";
+      const h = document.createElement("h3");
+      h.textContent = month;
+      group.appendChild(h);
+      list.forEach(e => {
+        const row = document.createElement("div");
+        row.className = "event";
+        const img = document.createElement("img");
+        img.src = e.image;
+        img.alt = "";
+        const t = document.createElement("span");
+        t.textContent = e.title;
+        row.append(img, t);
+        group.appendChild(row);
+      });
+      box.appendChild(group);
+    });
+  </script>
+</body>
+</html>
