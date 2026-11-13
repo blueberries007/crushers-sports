@@ -559,7 +559,8 @@ footer .footer-brand {
   line-height: 1;
   cursor: pointer;
 }
-
+/* Instagram icon in the menu */
+nav.main-nav a.nav-instagram { display: flex; align-items: center; padding: 8px 10px; }
 @media (max-width: 800px) {
   .donate-grid { grid-template-columns: 1fr; }
 }
