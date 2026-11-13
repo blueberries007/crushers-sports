@@ -64,36 +64,70 @@
       //{ date: "2027-02-22", title: "Hit-a-thon", image: "images/event-placeholder.svg" }
     ];
 
-    const box = document.getElementById("events");
-    const byMonth = new Map();
-    events
-      .slice()
-      .sort((a, b) => a.date.localeCompare(b.date))
-      .forEach(e => {
-        const label = new Date(e.date + "T12:00:00").toLocaleDateString("en-US", { month: "long", year: "numeric" });
-        if (!byMonth.has(label)) byMonth.set(label, []);
-        byMonth.get(label).push(e);
-      });
-    byMonth.forEach((list, month) => {
-      const group = document.createElement("div");
-      group.className = "month";
-      const h = document.createElement("h3");
-      h.textContent = month;
-      group.appendChild(h);
-      list.forEach(e => {
-        const row = document.createElement("div");
-        row.className = "event";
-        const img = document.createElement("img");
-        img.src = e.image;
-        img.alt = "";
-        const t = document.createElement("span");
-        t.textContent = e.title;
-        row.append(img, t);
-        group.appendChild(row);
-      });
-      box.appendChild(group);
+<dialog id="photo-viewer" class="photo-viewer">
+  <button type="button" class="photo-close" aria-label="Close">&times;</button>
+  <img id="photo-viewer-img" src="" alt="">
+  <p id="photo-viewer-title"></p>
+</dialog>
+
+<script>
+  // Fundraising events. Add one line per event; they are grouped by month automatically.
+  // date is YYYY-MM-DD, image goes in the img/ folder.
+  const events = [
+    { date: "2026-12-06", title: "Seattle Thunderbirds", image: "img/thunderbirds.jpeg" }
+  ];
+
+  const box = document.getElementById("events");
+  const byMonth = new Map();
+  events
+    .slice()
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .forEach(e => {
+      const label = new Date(e.date + "T12:00:00").toLocaleDateString("en-US", { month: "long", year: "numeric" });
+      if (!byMonth.has(label)) byMonth.set(label, []);
+      byMonth.get(label).push(e);
     });
-  </script>
+  byMonth.forEach((list, month) => {
+    const group = document.createElement("div");
+    group.className = "event-month";
+    const h = document.createElement("h4");
+    h.textContent = month;
+    group.appendChild(h);
+    list.forEach(e => {
+      const row = document.createElement("div");
+      row.className = "event";
+      const thumb = document.createElement("button");
+      thumb.type = "button";
+      thumb.className = "event-thumb";
+      thumb.setAttribute("aria-label", "View larger picture: " + e.title);
+      thumb.addEventListener("click", () => openPhoto(e.image, e.title));
+      const img = document.createElement("img");
+      img.src = e.image;
+      img.alt = "";
+      img.onerror = () => { img.onerror = null; img.src = "img/logo.jpg"; };
+      const t = document.createElement("span");
+      t.textContent = e.title;
+      thumb.appendChild(img);
+      row.append(thumb, t);
+      group.appendChild(row);
+    });
+    box.appendChild(group);
+  });
+  // Larger picture view: closes with the X, by clicking outside the picture, or with Esc
+  const viewer = document.getElementById("photo-viewer");
+  const viewerImg = document.getElementById("photo-viewer-img");
+  const viewerTitle = document.getElementById("photo-viewer-title");
+  function openPhoto(src, title) {
+    viewerImg.src = src;
+    viewerImg.alt = title;
+    viewerTitle.textContent = title;
+    viewer.showModal();
+  }
+  viewer.querySelector(".photo-close").addEventListener("click", () => viewer.close());
+  viewer.addEventListener("click", e => { if (e.target === viewer) viewer.close(); });
+
+  if (!events.length) box.innerHTML = "<p>Upcoming events will be posted here.</p>";
+</script>
 </body>
 </html>
 
