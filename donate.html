@@ -16,55 +16,53 @@
     </a>
     <nav class="main-nav"><ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="trainers.html">Trainers</a></li>
+      <li><a href="trainers.html" >Trainers</a></li>
       <li><a href="donate.html" class="active">Donate</a></li>
     </ul></nav>
   </div>
 </header>
+  <main>
+    <h1>Support the Crushers</h1>
+    <p class="lead">Your gift keeps fees low and gets every kid on the field.</p>
 
-<main>
-<section class="donate-hero">
-  <div class="section-title"><h2>Crushers Sports is a 501(c)(3) Nonprofit organization</h2></div>
-</section>
-
-<section>
-  <div class="section-inner">
-
-    <div class="grid-3 donate-grid">
-      <div class="card donate-card">
-        <div class="icon">⚾</div>
-        <h3>Make a Donation</h3>
-        <p>Your gift keeps fees low and gets every kid on the field.</p>
-        <a class="btn btn-primary" href="mailto:donate@crusherssports.org?subject=Donation%20to%20Crushers%20Sports">Donate</a>
-      </div>
-
-      <div class="card">
-        <h3>Our Sponsors</h3>
-        <!-- Placeholder: replace a slot with <img src="img/sponsor-name.png" alt="Sponsor name"> or the sponsor's name -->
+    <div class="frames">
+      <section class="frame frame-donate" aria-labelledby="donate-title">
+        <h2 id="donate-title">Make a Donation</h2>
+        <p>Email us and we'll help you give by check or online.</p>
+        <div><a class="btn btn-donate" href="mailto:donate@crusherssports.org?subject=Donation%20to%20the%20Crushers">Donate</a></div>
+        <p class="caption">Crushers Sports is 501(c)(3) Nonprofit organization</p>
+      </section>
+//
+      <section class="frame" aria-labelledby="sponsors-title">
+        <h2 id="sponsors-title">Our Sponsors</h2>
+       // <!-- Placeholder: replace each slot with <img src="images/sponsor-name.png" alt="Sponsor name"> or the sponsor's name -->
         <div class="sponsor-grid">
-          <div class="sponsor-slot sponsor-wide">Under Construction</div>
-          <!-- When sponsors are ready, remove the slot above and use:
-          <div class="sponsor-slot">Sponsor logo</div>
-          <div class="sponsor-slot">Sponsor logo</div>
-          <div class="sponsor-slot">Sponsor logo</div>
-          <div class="sponsor-slot">Sponsor logo</div>
-          -->
+          <div class="sponsor-slot">Under  Construction</div>
+         // <div class="sponsor-slot">Sponsor logo</div>
+         // <div class="sponsor-slot">Sponsor logo</div>
+         // <div class="sponsor-slot">Sponsor logo</div>
         </div>
-      </div>
-
-      <div class="card">
-        <h3>Fundraising Events</h3>
-        <div id="events" class="events"></div>
-      </div>
+      </section>
+//
+      <section class="frame" aria-labelledby="events-title">
+        <h2 id="events-title">Fundraising Events</h2>
+        <div id="events"></div>
+      </section>
     </div>
-  </div>
-</section>
-</main>
-
-<footer>
+  </main>
+  <footer>
   <div class="footer-brand">Crushers Sports</div>
   <div>Crushers Sports LLC &middot; &copy; 2026 All rights reserved.</div>
-</footer>
+  </footer>
+  <script>
+    // Fundraising events. Add one line per event; they are grouped by month automatically.
+    // date is YYYY-MM-DD, image goes in the images/ folder.
+    const events = [
+      { date: "2026-12-06", title: "Seattle Thunderbirds", image: "img/thunderbirds.jpeg" },
+      //{ date: "2026-12-14", title: "Gift Wrap Booth", image: "images/event-placeholder.svg" },
+      //{ date: "2027-01-18", title: "Pancake Breakfast", image: "images/event-placeholder.svg" },
+      //{ date: "2027-02-22", title: "Hit-a-thon", image: "images/event-placeholder.svg" }
+    ];
 
 <dialog id="photo-viewer" class="photo-viewer">
   <button type="button" class="photo-close" aria-label="Close">&times;</button>
@@ -132,3 +130,4 @@
 </script>
 </body>
 </html>
+
